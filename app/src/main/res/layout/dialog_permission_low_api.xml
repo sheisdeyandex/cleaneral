@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="20dp"
+  app:cardBackgroundColor="#ccffffff"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_gravity="center_vertical|center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+android:layout_marginStart="10dp"
+    android:layout_marginTop="10dp"
+    android:text="Выдайте разрешение"
+    android:textColor="#2D2D2D"
+    android:textSize="22sp"
+android:id="@+id/tv_give_permission"
+    />
+        <TextView
+            android:layout_width="wrap_content"
+android:layout_below="@+id/tv_give_permission"
+            android:layout_marginStart="10dp"
+            android:textSize="16sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_give_permission_text"
+            android:text="Для очистки необходимо предоставить\nдоступ к файловому хранилищу\nустройства."
+            />
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            app:cardCornerRadius="12dp"
+            android:id="@+id/mcv_permission_check"
+            android:background="#fff"
+            android:layout_below="@+id/tv_give_permission_text"
+            android:layout_height="wrap_content">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+               android:padding="10dp"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:id="@+id/iv_permission"
+                    android:src="@drawable/ic_permission_icon"
+                    android:layout_height="wrap_content"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/iv_permission"
+                    android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:id="@+id/tv_find_permission"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/iv_permission"
+                    android:text="Найдите приложение"
+                    />
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Cleaner"
+    android:layout_marginStart="5dp"
+    android:textStyle="bold"
+    app:layout_constraintTop_toBottomOf="@+id/tv_find_permission"
+    app:layout_constraintStart_toEndOf="@+id/iv_permission"
+
+    />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+android:text="Разрешить"
+            android:id="@+id/tv_permite"
+
+            android:layout_marginBottom="10dp"
+            android:textColor="#0035FF"
+            android:textStyle="bold"
+            android:layout_below="@+id/mcv_permission_check"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:textSize="18sp"
+            />
+    </RelativeLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".FragmentSplash">
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.07"
+        android:id="@+id/circle_view_percent"
+        />
+   <ImageView
+       android:layout_width="wrap_content"
+       android:src="@drawable/ic_start"
+       app:layout_constraintStart_toEndOf="@+id/circle_view_percent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintBottom_toTopOf="@+id/tv_splash"
+       android:layout_above="@+id/tv_splash"
+       android:layout_centerHorizontal="true"
+       android:layout_height="wrap_content"/>
+<TextView
+    android:layout_width="wrap_content"
+    android:textColor="#2D2D2D"
+    android:id="@+id/tv_splash"
+    android:text="@string/analyze_splash"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    android:textSize="24sp"
+    android:layout_height="wrap_content"/>
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.8"
+        app:layout_constraintTop_toBottomOf="@+id/tv_splash"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+android:max="100"
+        android:progress="0"
+        android:id="@+id/lpi_progress"
+        android:layout_marginTop="10dp"
+        app:indicatorColor="#0035FF"
+        app:circularflow_defaultRadius="30dp"
+        app:trackCornerRadius="30dp"
+        app:trackColor="#595E81FF"
+
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
