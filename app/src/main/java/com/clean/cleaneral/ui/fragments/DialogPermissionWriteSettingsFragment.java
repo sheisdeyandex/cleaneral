@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 
 import com.clean.cleaneral.databinding.DialogPermissionBinding;
@@ -32,7 +33,7 @@ public class DialogPermissionWriteSettingsFragment extends DialogFragment {
 
     }
 DialogPermissionWriteSettingsBinding binding;
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = DialogPermissionWriteSettingsBinding.inflate(inflater, container, false);
   View v = binding.getRoot();

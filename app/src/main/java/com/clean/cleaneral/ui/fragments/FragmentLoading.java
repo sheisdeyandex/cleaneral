@@ -170,7 +170,7 @@ FragmentLoadingBinding binding;
                     public void onTick(long millisUntilFinished) {
 if(isAdded()){
                         getActiveApps(requireContext());}
-                        binding.tvActiveApps.setText("Запущенные приложения: "+ countapps);
+                        binding.tvActiveApps.setText(getResources().getString(R.string.running_apps)+ " " +countapps);
                         new Thread(()-> scan(false)).start();
                     }
 

@@ -99,17 +99,17 @@ countapps++;
         boolean batterysaver = prefs.getBoolean("batterysaver", true);
         if(clean){
        binding.tvCool.setOnClickListener(v ->fragmentInterface.show(new FragmentLoading(getContext(), ((MainActivity)requireContext())),this) );
-       binding.tvCool.setText("Очистка");
+       binding.tvCool.setText(getResources().getString(R.string.clean_text));
         }
         else {
             if(boost){
                 binding.tvCool.setOnClickListener(v ->fragmentInterface.show(new FragmentBoost(((MainActivity)requireContext()), requireContext()),this) );
-                binding.tvCool.setText("Ускорение");
+                binding.tvCool.setText(getResources().getString(R.string.boost));
             }
             else {
                 if(cool){
                     binding.tvCool.setOnClickListener(v ->fragmentInterface.show(new FragmentCool(requireContext(), ((MainActivity)requireContext())),this) );
-                    binding.tvCool.setText("Охлаждение");
+                    binding.tvCool.setText(getResources().getString(R.string.cool_text));
                 }
                 else {
                     fragmentInterface.show(new FragmentCoolFinished( ((MainActivity)requireContext()),requireContext()),this);

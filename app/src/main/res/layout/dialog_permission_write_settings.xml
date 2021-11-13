@@ -14,7 +14,7 @@
     android:layout_height="wrap_content"
 android:layout_marginStart="10dp"
     android:layout_marginTop="10dp"
-    android:text="Выдайте разрешение"
+    android:text="@string/give_permission_top"
     android:textColor="#2D2D2D"
     android:textSize="22sp"
 android:id="@+id/tv_give_permission"
@@ -26,7 +26,7 @@ android:layout_below="@+id/tv_give_permission"
             android:textSize="16sp"
             android:layout_height="wrap_content"
             android:id="@+id/tv_give_permission_text"
-            android:text="Для эффективной оптимизации нужно\nпредоставить доступ к статистике\nиспользования приложений."
+            android:text="@string/give_permission"
             />
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
@@ -64,7 +64,7 @@ android:layout_below="@+id/tv_give_permission"
                     android:id="@+id/tv_find_permission"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/iv_permission"
-                    android:text="Найдите приложение"
+                    android:text="@string/find_app"
                     />
 <TextView
     android:layout_width="wrap_content"
@@ -83,7 +83,7 @@ android:layout_below="@+id/tv_give_permission"
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-android:text="Разрешить"
+android:text="@string/allow"
             android:id="@+id/tv_permite"
 
             android:layout_marginBottom="10dp"
@@ -91,7 +91,7 @@ android:text="Разрешить"
             android:textStyle="bold"
             android:layout_below="@+id/mcv_permission_check"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:textSize="18sp"
             />
     </RelativeLayout>

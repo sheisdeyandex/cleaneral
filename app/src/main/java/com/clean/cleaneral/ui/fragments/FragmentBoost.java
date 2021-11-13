@@ -61,7 +61,7 @@ binding.clCool.setVisibility(View.VISIBLE);
             editor.putBoolean("boost", false).apply();
             binding.clScan.setVisibility(View.GONE);
             binding.clCool.setVisibility(View.VISIBLE);
-            binding.tvScan.setText("Освобождение\nоперативной памяти");
+            binding.tvScan.setText(getResources().getString(R.string.ram_cleaned));
             new CountDownTimer(2000, 1000) {
                 @Override
                 public void onTick(long millisUntilFinished) {

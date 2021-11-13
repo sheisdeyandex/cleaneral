@@ -136,7 +136,7 @@ binding.mcbNormalMode.setOnCheckedChangeListener((buttonView, isChecked) -> {
                public void run() {
                    handler.post(() -> {
                        if(current[0] <max) {
-                           binding.tvScan.setText( ("Переводим в спящий режим ресурсоемкие приложения "+(current[0]+1))+"/ "+ appscount);
+                           binding.tvScan.setText( (getResources().getString(R.string.closing_heated_apps)+" "+(current[0]+1))+"/ "+ appscount);
                            current[0]++;
                        }
                        else {

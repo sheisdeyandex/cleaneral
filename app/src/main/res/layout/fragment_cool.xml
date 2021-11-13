@@ -69,7 +69,7 @@
             android:layout_width="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_height="wrap_content"
-            android:text="Получение данных"
+            android:text="@string/getting_info"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
 
@@ -89,7 +89,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Может быть перегрето"
+        android:text="@string/overheated"
         android:textSize="22sp"
         app:layout_constraintTop_toBottomOf="@+id/cgl_top_peregreto"
         android:textColor="#2D2D2D"

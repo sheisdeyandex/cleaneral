@@ -11,6 +11,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.os.CountDownTimer;
@@ -65,7 +66,7 @@ Context context;
     FragmentCoolBinding binding;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
    binding = FragmentCoolBinding.inflate(inflater, container, false);
    View view = binding.getRoot();
@@ -101,7 +102,7 @@ binding.ivClean.setOnClickListener(v -> {
 
         @Override
         public void onFinish() {
-            binding.tvScan.setText("Охлаждение системы");
+            binding.tvScan.setText(getResources().getString(R.string.cooling_system));
            fragmentInterface.show(new FragmentCleanFinished(((MainActivity)requireActivity()), getContext(),""), FragmentCool.this);
 
         }

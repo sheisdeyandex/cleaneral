@@ -70,7 +70,7 @@
             android:layout_width="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_height="wrap_content"
-            android:text="Сканирование\nОЗУ..."
+            android:text="@string/scan_ram"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
 
@@ -91,7 +91,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Найдено"
+            android:text="@string/found_boost"
             android:textSize="22sp"
             app:layout_constraintTop_toBottomOf="@+id/cgl_top_peregreto"
             android:textColor="#2D2D2D"
@@ -128,7 +128,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Запущенные приложения"
+            android:text="@string/running_apps"
             android:layout_marginTop="10dp"
             android:textSize="18sp"
             app:layout_constraintTop_toBottomOf="@+id/cgl_top_apps_run"

@@ -71,7 +71,7 @@
             android:layout_width="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_height="wrap_content"
-            android:text="Оптимизация\nэнергопотребления"
+            android:text="@string/optimize_battery"
             app:layout_constraintTop_toTopOf="parent"
 
             app:layout_constraintBottom_toBottomOf="parent"
@@ -191,7 +191,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Normal mood"
+                android:text="@string/normal_mood"
                 app:layout_constraintStart_toEndOf="@+id/cgl_start"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -241,7 +241,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Low saving"
+                android:text="@string/low_saving"
                 app:layout_constraintStart_toEndOf="@+id/cgl_start_files"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -291,7 +291,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hard saving"
+                android:text="@string/hard_saving"
                 app:layout_constraintStart_toEndOf="@+id/cgl_start_app_files"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"

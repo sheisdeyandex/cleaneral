@@ -88,10 +88,49 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="clean_text">Очистить</string>
+    <string name="cooling_system">Охлаждение системы</string>
+    <string name="ram_cleaned">Освобождение\nоперативной памяти</string>
+    <string name="closing_heated_apps">Переводим в спящий режим ресурсоемкие приложения</string>
     <string name="boost_text">Ускорить</string>
     <string name="cool_text">Охладить</string>
     <string name="battery_saver_text">Оптимизировать батарею</string>
     <string name="cool">Охлаждение</string>
     <string name="analyze_splash">Анализация системы...</string>
     <string name="main_boost">Ускорить</string>
+    <string name="allow">Разрешить</string>
+    <string name="find_app">Найдите приложение</string>
+    <string name="give_permission">Для эффективной оптимизации нужно\nпредоставить доступ к статистике\nиспользования приложений.</string>
+    <string name="give_permission_top">Выдайте разрешение</string>
+    <string name="app_manager">Менеджер Приложений</string>
+    <string name="delete">Удалить</string>
+    <string name="recommended_also">Рекомендуем так же:</string>
+    <string name="optimize_success">Успешно оптимизировано</string>
+    <string name="optimize_battery">Оптимизация\nэнергопотребления</string>
+    <string name="normal_mood">Обычный режим</string>
+    <string name="low_saving">Средняя экономия заряда
+</string>
+    <string name="hard_saving">Максимальная экономия заряда</string>
+    <string name="scan_ram">Сканирование\nОЗУ...</string>
+    <string name="found_boost">Найдено</string>
+    <string name="running_apps">Запущенные приложения</string>
+    <string name="done">Выполнено</string>
+    <string name="getting_info">Получение данных</string>
+    <string name="overheated">Может быть перегрето</string>
+    <string name="scan_memory">Сканирование памяти\nУстройств</string>
+    <string name="visible_hash">Видимый кеш</string>
+    <string name="app_files">Файлы данных</string>
+    <string name="app_files_load">Данные приложений</string>
+    <string name="ad_trash">Рекламный мусор</string>
+    <string name="used_memory">Использовано памяти</string>
+    <string name="used_ram">Использовано RAM</string>
+    <string name="scan">Сканировать</string>
+    <string name="main_clean">Очистка</string>
+    <string name="boost">Ускорение</string>
+    <string name="battery_save">Экономия\nзаряда</string>
+    <string name="app_manager_with_space">Менеджер\nприложений</string>
+    <string name="last_used_time">Последнее время использования</string>
+    <string name="used_time">Время работы приложения</string>
+    <string name="hours">ч</string>
+    <string name="never">Никогда</string>
+
 </resources>

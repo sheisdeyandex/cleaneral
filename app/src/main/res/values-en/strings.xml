@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">cleaneral</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="clean_text">Clean now!</string>
+    <string name="boost_text">Boost up!</string>
+    <string name="cool_text">Cool down!</string>
+    <string name="battery_saver_text">Optimize battery</string>
+    <string name="cool">Cooling down…</string>
+    <string name="analyze_splash">Analyzing the system…</string>
+    <string name="main_boost">Boost up!
+</string>
+    <string name="allow">Разрешить</string>
+
+    <string name="find_app">Найдите приложение</string>
+    <string name="give_permission">You should grant a special\n access to application usage stats\nfor this cleaner app.</string>
+    <string name="give_permission_top">Give an access</string>
+    <string name="app_manager">Application manager</string>
+    <string name="delete">Remove</string>
+    <string name="recommended_also">Also recommended:</string>
+    <string name="optimize_success">Успешно оптимизировано</string>
+    <string name="optimize_battery">Energy\noptimization</string>
+    <string name="normal_mood">Normal mood</string>
+    <string name="low_saving">Low saving</string>
+    <string name="hard_saving">Hard saving</string>
+    <string name="scan_ram">Scanning\nRAM...</string>
+    <string name="found_boost">Found</string>
+    <string name="running_apps">Running applications</string>
+    <string name="done">Done!
+</string>
+    <string name="getting_info">Collecting data
+</string>
+    <string name="overheated">Can be overheated
+</string>
+    <string name="scan_memory">Device memory \nscan</string>
+    <string name="visible_hash">Detected caсhe files</string>
+    <string name="app_files">Data files</string>
+    <string name="app_files_load">Application data</string>
+    <string name="ad_trash">Ads cache
+</string>
+    <string name="used_memory">Memory used</string>
+    <string name="used_ram">RAM used</string>
+    <string name="scan">Scan now!</string>
+    <string name="main_clean">Cleaning now…</string>
+    <string name="boost">Boosting now…</string>
+    <string name="battery_save">Saving\ncharge</string>
+    <string name="app_manager_with_space">Application\nmanager</string>
+    <string name="last_used_time">Last day used</string>
+    <string name="used_time">Application uptime</string>
+    <string name="hours">h</string>
+</resources>

@@ -28,7 +28,7 @@
         <entry key="..\:/Users/sulta/AndroidStudioProjects/cleaneral/app/src/main/res/drawable/unchecked_checkbox.xml" value="0.21875" />
         <entry key="..\:/Users/sulta/AndroidStudioProjects/cleaneral/app/src/main/res/layout/activity_main.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/sulta/AndroidStudioProjects/cleaneral/app/src/main/res/layout/custom_spinner.xml" value="0.25" />
-        <entry key="..\:/Users/sulta/AndroidStudioProjects/cleaneral/app/src/main/res/layout/dialog_permission.xml" value="0.1762917933130699" />
+        <entry key="..\:/Users/sulta/AndroidStudioProjects/cleaneral/app/src/main/res/layout/dialog_permission.xml" value="0.25" />
         <entry key="..\:/Users/sulta/AndroidStudioProjects/cleaneral/app/src/main/res/layout/dialog_permission_low_api.xml" value="0.20260416666666667" />
         <entry key="..\:/Users/sulta/AndroidStudioProjects/cleaneral/app/src/main/res/layout/dialog_permission_write_settings.xml" value="0.20923913043478262" />
         <entry key="..\:/Users/sulta/AndroidStudioProjects/cleaneral/app/src/main/res/layout/fragment_app_manager.xml" value="0.20923913043478262" />
@@ -36,7 +36,7 @@
         <entry key="..\:/Users/sulta/AndroidStudioProjects/cleaneral/app/src/main/res/layout/fragment_battery_saver.xml" value="0.20923913043478262" />
         <entry key="..\:/Users/sulta/AndroidStudioProjects/cleaneral/app/src/main/res/layout/fragment_boost.xml" value="0.20260416666666667" />
         <entry key="..\:/Users/sulta/AndroidStudioProjects/cleaneral/app/src/main/res/layout/fragment_boost_finished.xml" value="0.17481884057971014" />
-        <entry key="..\:/Users/sulta/AndroidStudioProjects/cleaneral/app/src/main/res/layout/fragment_clean_finished.xml" value="0.5836791147994468" />
+        <entry key="..\:/Users/sulta/AndroidStudioProjects/cleaneral/app/src/main/res/layout/fragment_clean_finished.xml" value="0.33" />
         <entry key="..\:/Users/sulta/AndroidStudioProjects/cleaneral/app/src/main/res/layout/fragment_cool.xml" value="0.20260416666666667" />
         <entry key="..\:/Users/sulta/AndroidStudioProjects/cleaneral/app/src/main/res/layout/fragment_cool_finished.xml" value="0.20260416666666667" />
         <entry key="..\:/Users/sulta/AndroidStudioProjects/cleaneral/app/src/main/res/layout/fragment_loading.xml" value="0.2" />

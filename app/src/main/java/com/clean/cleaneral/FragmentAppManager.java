@@ -140,25 +140,7 @@ FragmentAppManagerBinding binding;
                         }
                     }
                 });
-             /*  result -> {
-Log.d("resultcode", String.valueOf(result.getResultCode()));
-                           if (result.getResultCode() == RESULT_OK) {
-                               // There are no request codes
-                               Intent data = result.getData();
-                               for(int i1:integers1){
-                                   appsModelList.remove(i1);
-                                   appsAdapter.notifyItemRemoved(i1);
-                               }
-                               appsAdapter.notifyItemRangeChanged(findMinIndex(integers1), appsModelList.size());
-                               Log.d("sukadata", data.getDataString());
-                           }
-                           else if(result.getResultCode() == RESULT_CANCELED){
-                               Log.d("sukadata", "cancelled");
-                           }
-                           else if(result.getResultCode() == RESULT_FIRST_USER){
-                               Log.d("sukadata", "uninstallfail");
-                           }
-               });*/
+
   binding = FragmentAppManagerBinding.inflate(inflater, container,false);
   View view = binding.getRoot();
 
@@ -172,9 +154,9 @@ Log.d("resultcode", String.valueOf(result.getResultCode()));
         beginCal.set(Calendar.MONTH, 10);
         beginCal.set(Calendar.YEAR, 2015);
         List<String> options = new ArrayList<>();
-        options.add("suka");
-        options.add("suka2");
-        options.add("suka3");
+        options.add("1");
+        options.add("2");
+        options.add("3");
         ArrayAdapter<String> myAdapter = new AdapterCustomSpinner(requireContext(), R.layout.custom_spinner, options);
         binding.spMain.setAdapter(myAdapter);
         final List<UsageStats> queryUsageStats = usageStatsManager.queryUsageStats(UsageStatsManager.INTERVAL_BEST, beginCal.getTimeInMillis(), System.currentTimeMillis());

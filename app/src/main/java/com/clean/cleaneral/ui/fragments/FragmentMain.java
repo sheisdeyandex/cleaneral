@@ -176,13 +176,13 @@ binding.ivClean.setOnClickListener(v ->
                fragmentInterface.show(new FragmentLoading(getContext(),((MainActivity)getActivity())),this);
                 }
                 else {
-                    if (Environment.isExternalStorageLegacy()) {
                         new DialogPermissionFragment().show(getChildFragmentManager(),"");
-                    }
+
+
 
                 }
                 }
-         else     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+               if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.Q) {
                 if (checkPermission()) {
                     fragmentInterface.show(new FragmentLoading(getContext(), ((MainActivity)getActivity())),this);
 
@@ -190,14 +190,14 @@ binding.ivClean.setOnClickListener(v ->
                     new DialogPermissionLowApiFragment().show(getChildFragmentManager(),"");
                 }
             }
-            else     if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P) {
-                if (checkPermission()) {
-                    fragmentInterface.show(new FragmentLoading(getContext(), ((MainActivity)getActivity())),this);
-
-                } else {
-                    new DialogPermissionLowApiFragment().show(getChildFragmentManager(),"");
-                }
-            }
+//               else   if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P) {
+//                if (checkPermission()) {
+//                    fragmentInterface.show(new FragmentLoading(getContext(), ((MainActivity)getActivity())),this);
+//
+//                } else {
+//                    new DialogPermissionLowApiFragment().show(getChildFragmentManager(),"");
+//                }
+//            }
 
         });
         binding.ivCool.setOnClickListener(v ->{

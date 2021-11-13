@@ -55,13 +55,13 @@ FragmentInterface fragmentInterface;
         holder.checktodelete.setChecked(deleteAppsModels.get(position).isCheckboxIsVisible());
         if(deleteAppsModels.get(position).getUsagetime()==null){
 
-            holder.usagetime.setText("0ч");
+            holder.usagetime.setText("0"+context.getResources().getString(R.string.hours));
         }
         else {
-holder.usagetime.setText(deleteAppsModels.get(position).getUsagetime()+"ч");}
+holder.usagetime.setText(deleteAppsModels.get(position).getUsagetime()+context.getResources().getString(R.string.hours));}
         if(deleteAppsModels.get(position).getLasttimeusage()==null) {
 
-            holder.lasttimeusage.setText("Никогда");
+            holder.lasttimeusage.setText(context.getResources().getString(R.string.never));
         }
         else {
             holder.lasttimeusage.setText(deleteAppsModels.get(position).getLasttimeusage());
