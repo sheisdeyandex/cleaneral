@@ -5,6 +5,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -34,7 +35,7 @@ public class FragmentBoostFinished extends Fragment {
         PackageManager pm = context.getPackageManager();
         List<ApplicationInfo> packages = pm.getInstalledApplications(PackageManager.GET_META_DATA);
 
-        String value = ""; // basic date stamp
+        String value = "";
         value += "---------------------------------\n";
         value += "Active Apps\n";
         value += "=================================\n";
@@ -81,13 +82,13 @@ public class FragmentBoostFinished extends Fragment {
 
     FragmentBoostFinishedBinding binding;
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
  binding = FragmentBoostFinishedBinding.inflate(inflater,container,false);
  View view = binding.getRoot();
         getActiveApps(requireContext());
         binding.ivBack.setOnClickListener(v -> fragmentInterface.show(new FragmentMain(requireContext(),((MainActivity)requireContext())), this));
-        binding.tvClosedApps.setText("Закрыто "+countapps+" приложений");
+        binding.tvClosedApps.setText(getResources().getString(R.string.closed)+" "+countapps+" "+getResources().getString(R.string.apps));
         binding.clCool.setOnClickListener(v ->fragmentInterface.show(new FragmentLoading(getContext(), ((MainActivity)requireContext())), this) );
 
         return view;

@@ -8,6 +8,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.os.CountDownTimer;
@@ -149,7 +150,7 @@ public  FragmentInterface fragmentInterface;
     }
 FragmentLoadingBinding binding;
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentLoadingBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
@@ -190,7 +191,7 @@ if(isAdded()){
          binding.ivBigCircle.setVisibility(View.GONE);
             Picasso.get().load(R.drawable.ic_cleaning).error(R.drawable.ic_cleaning).placeholder(R.drawable.ic_cleaning).into(binding.ivSmallCircle);
 binding.ivBack.setVisibility(View.GONE);
-          binding.tvScan.setText("Освобождение данных\nприложений");
+          binding.tvScan.setText(getResources().getString(R.string.clean_app_files));
           binding.tvScanPercent.addTextChangedListener(new TextWatcher() {
               @Override
               public void beforeTextChanged(CharSequence s, int start, int count, int after) {

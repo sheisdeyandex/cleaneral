@@ -11,7 +11,7 @@
     <string name="main_boost">Boost up!
 </string>
     <string name="allow">Разрешить</string>
-
+    <string name="ram_cleaned">Cleaning RAM</string>
     <string name="find_app">Найдите приложение</string>
     <string name="give_permission">You should grant a special\n access to application usage stats\nfor this cleaner app.</string>
     <string name="give_permission_top">Give an access</string>
@@ -48,4 +48,6 @@
     <string name="last_used_time">Last day used</string>
     <string name="used_time">Application uptime</string>
     <string name="hours">h</string>
+
+    <string name="clean_app_files">Cleaning app data</string>
 </resources>
