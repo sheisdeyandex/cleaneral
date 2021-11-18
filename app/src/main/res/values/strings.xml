@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">cleaneral</string>
+    <string name="app_name" translatable="false">Fast Clean App</string>
     <string name="no_files_found">No files found</string>
     <string name="delete_empty_folders">Delete empty folders</string>
     <string name="aggressive_filter">Enable aggressive filter</string>
@@ -107,8 +107,7 @@
     <string name="optimize_success">Успешно оптимизировано</string>
     <string name="optimize_battery">Оптимизация\nэнергопотребления</string>
     <string name="normal_mood">Обычный режим</string>
-    <string name="low_saving">Средняя экономия заряда
-</string>
+    <string name="low_saving">Средняя экономия заряда</string>
     <string name="hard_saving">Максимальная экономия заряда</string>
     <string name="scan_ram">Сканирование\nОЗУ...</string>
     <string name="found_boost">Найдено</string>

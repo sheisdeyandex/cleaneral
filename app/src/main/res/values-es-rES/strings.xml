@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="clean_text">¡Limpie ahora!</string>
+    <string name="cooling_system">Enfriando el sistema</string>
+    <string name="ram_cleaned">Limpieza\nde RAM</string>
+    <string name="closing_heated_apps">Deshabilitar aplicaciones que consumen muchos recursos</string>
+    <string name="boost_text">¡Impulse!</string>
+    <string name="cool_text">¡Enfríe!</string>
+    <string name="battery_saver_text">Optimice la batería</string>
+    <string name="cool">Enfriando...</string>
+    <string name="analyze_splash">Analizando el sistema...
+</string>
+    <string name="main_boost">¡Impulse!</string>
+    <string name="allow">permitir</string>
+
+    <string name="find_app">Encontrar o aplicativo</string>
+    <string name="give_permission">Debe otorgar un acceso especial\na las estadísticas de uso\nde la aplicación para \nesta aplicación de limpieza.\n¡Busque el nombre de la \naplicación [nombre del limpiador] en\nla lista y de acceso!</string>
+    <string name="give_permission_top">¡Dar acceso!</string>
+    <string name="app_manager">Gestor de aplicaciones</string>
+    <string name="delete">Eliminar</string>
+    <string name="recommended_also">También recomendado:</string>
+    <string name="optimize_success">Optimizado con éxito</string>
+    <string name="optimize_battery">Optimización\nenergética</string>
+    <string name="normal_mood">Modo normal</string>
+    <string name="low_saving">Bajo ahorro</string>
+    <string name="hard_saving">Ahorro máximo</string>
+    <string name="scan_ram">Escaneo\nde RAM...</string>
+    <string name="found_boost">encontrados</string>
+    <string name="running_apps">Aplicaciones abiertas</string>
+    <string name="done">¡Hecho!</string>
+    <string name="getting_info">Recolectando datos</string>
+    <string name="overheated">Puede sobrecalentarse</string>
+    <string name="scan_memory">Escaneo de memoria\ndel dispositivo</string>
+    <string name="visible_hash">Archivos de caché detectados</string>
+    <string name="app_files">Ficheros de datos</string>
+    <string name="app_files_load">Datos de la aplicación</string>
+    <string name="ad_trash">Caché de anuncios
+</string>
+    <string name="used_memory">Memoria utilizada
+</string>
+    <string name="used_ram">Memoria RAM utilizada
+</string>
+    <string name="scan">¡Escanee ahora!</string>
+    <string name="main_clean">Limpiando ahora…</string>
+    <string name="boost">Impulsando ahora...</string>
+    <string name="battery_save">Ahorro\nde carga</string>
+    <string name="app_manager_with_space">Gestor
+\nde aplicaciones</string>
+    <string name="last_used_time">Último día de uso
+</string>
+    <string name="used_time">Tiempo de actividad de la aplicación</string>
+    <string name="hours">h</string>
+    <string name="never">Nunca</string>
+    <string name="closed">Cerrado</string>
+    <string name="apps">Aplicaciones</string>
+    <string name="clean_app_files">Limpiando datos de la\naplicación</string>
+</resources>

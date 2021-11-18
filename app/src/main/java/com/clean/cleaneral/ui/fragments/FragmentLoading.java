@@ -205,6 +205,7 @@ binding.ivBack.setVisibility(View.GONE);
                      editor.putBoolean("clean", false).apply();
                       fragmentInterface.show(new FragmentCleanFinished(((MainActivity)requireActivity()), getContext(), convertSize(kilobytesTotal)),FragmentLoading.this);
                   }
+
               }
 
               @Override
@@ -212,8 +213,21 @@ binding.ivBack.setVisibility(View.GONE);
 
               }
           });
+            new CountDownTimer(60000, 1000) {
+                @Override
+                public void onTick(long millisUntilFinished) {
 
+                }
+
+                @Override
+                public void onFinish() {
+                    editor.putBoolean("clean", false).apply();
+                    fragmentInterface.show(new FragmentCleanFinished(((MainActivity)requireActivity()), getContext(), convertSize(kilobytesTotal)),FragmentLoading.this);
+
+                }
+            }.start();
         });
+
 
         return view;
     }
