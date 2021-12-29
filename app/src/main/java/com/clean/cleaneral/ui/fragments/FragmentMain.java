@@ -148,6 +148,7 @@ binding.ivBoost.setOnClickListener(v ->
     fragmentInterface.show(new FragmentBoost(((MainActivity)requireContext()), requireContext()),this);
 
 });
+binding.ivPaywall.setOnClickListener(view1 -> fragmentInterface.show(new FragmentPaywall(), this));
 binding.ivBoostMain.setOnClickListener(v -> {  fragmentInterface.show(new FragmentBoost(((MainActivity)requireContext()), requireContext()),this);
 });
 binding.ivScanView.setOnClickListener(v ->binding.ivClean.performClick() );

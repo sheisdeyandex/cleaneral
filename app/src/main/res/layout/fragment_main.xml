@@ -285,8 +285,7 @@ app:layout_constraintStart_toEndOf="@+id/cgl_menu_start"
         android:src="@drawable/ic_battery_saver"
         android:id="@+id/iv_battery_saver"
         app:layout_constraintTop_toBottomOf="@+id/cgl_menu_bottom"
-        app:layout_constraintStart_toStartOf="@+id/cgl_bottom_start_menu"
-        app:layout_constraintEnd_toEndOf="@+id/cgl_bottom_start_menu"
+        app:layout_constraintStart_toStartOf="@+id/cgl_menu_start"
 
         />
     <ImageView
@@ -296,10 +295,18 @@ app:layout_constraintStart_toEndOf="@+id/cgl_menu_start"
         android:layout_marginTop="5dp"
         android:id="@+id/iv_clean_notifications"
         app:layout_constraintTop_toBottomOf="@+id/cgl_menu_bottom"
-        app:layout_constraintStart_toStartOf="@+id/cgl_bottom_end_menu"
+        app:layout_constraintStart_toStartOf="@+id/iv_cool"
+        app:layout_constraintEnd_toEndOf="@+id/iv_cool"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_paywall_icon"
+        android:id="@+id/iv_paywall"
+        app:layout_constraintTop_toBottomOf="@+id/cgl_menu_bottom"
+        app:layout_constraintStart_toStartOf="@+id/cgl_bottom_start_menu"
         app:layout_constraintEnd_toEndOf="@+id/cgl_bottom_end_menu"
         />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -329,9 +336,18 @@ app:layout_constraintStart_toEndOf="@+id/cgl_menu_start"
         android:layout_height="wrap_content"
         android:text="@string/app_manager_with_space"
         android:textAlignment="center"
-        app:layout_constraintStart_toStartOf="@+id/cgl_bottom_end_menu"
-        app:layout_constraintEnd_toEndOf="@+id/cgl_bottom_end_menu"
+        app:layout_constraintStart_toStartOf="@+id/iv_clean_notifications"
+        app:layout_constraintEnd_toEndOf="@+id/iv_clean_notifications"
         app:layout_constraintTop_toTopOf="@+id/tv_battery_saver"
         app:layout_constraintBottom_toBottomOf="@+id/tv_battery_saver"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/paywall"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="@+id/cgl_bottom_start_menu"
+        app:layout_constraintEnd_toEndOf="@+id/cgl_bottom_end_menu"
+        app:layout_constraintTop_toTopOf="@+id/tv_battery_saver"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

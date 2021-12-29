@@ -134,5 +134,9 @@
     <string name="closed">Закрыто</string>
     <string name="apps">приложений</string>
     <string name="clean_app_files">Освобождение данных\nприложений</string>
+    <string name="paywall">Paywall</string>
+    <string name="hurryup">HURRY! LAST CHANCE!\n25% OFF</string>
+    <string name="freetrial">7-day Free Trial. Cancel Anytime</string>
+    <string name="monthly">MONTHLY</string>
 
 </resources>
