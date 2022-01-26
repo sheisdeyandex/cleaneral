@@ -5,6 +5,17 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".FragmentAppManager">
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/ad_banner"
+        ads:layout_constraintTop_toBottomOf="@+id/sp_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+    ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+    </com.google.android.gms.ads.AdView>
     <androidx.constraintlayout.widget.Guideline
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -62,7 +73,7 @@ android:visibility="gone"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintBottom_toTopOf="@+id/mbtn_delete"
     app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/sp_main"
+    app:layout_constraintTop_toBottomOf="@+id/ad_banner"
     android:id="@+id/recycler1"
     android:layout_height="0dp"/>
     <com.google.android.material.button.MaterialButton
