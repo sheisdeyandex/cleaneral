@@ -22,8 +22,10 @@ import android.view.WindowManager;
 import com.anjlab.android.iab.v3.BillingProcessor;
 import com.anjlab.android.iab.v3.PurchaseInfo;
 import com.anjlab.android.iab.v3.SkuDetails;
+import com.fast.cleaneral.AppOpenManager;
 import com.fast.cleaneral.FragmentAppManager;
 import com.fast.cleaneral.FragmentSplash;
+import com.fast.cleaneral.app;
 import com.fast.cleaneral.interfaces.LoadAdmob;
 import com.fast.cleaneral.interfaces.purchaseinterface;
 import com.fast.cleaneral.ui.fragments.FragmentMain;
@@ -47,6 +49,13 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements FragmentInterface, purchaseinterface, LoadAdmob {
     Boolean AdisReady= false;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
+
     int REQUEST_PERMISSION = 1000;
     @Override
     public void onRequestPermissionsResult(final int requestCode, @NonNull final String[] permissions, @NonNull final int[] grantResults) {
@@ -102,7 +111,8 @@ public class MainActivity extends AppCompatActivity implements FragmentInterface
     String price;
     AdRequest adRequest;
     ProgressDialog dialog;
-   private InterstitialAd mInterstitialAd;
+    AppOpenManager appOpenManager;
+    private InterstitialAd mInterstitialAd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -110,10 +120,10 @@ public class MainActivity extends AppCompatActivity implements FragmentInterface
         FragmentSplash fragmentSplash= new FragmentSplash(this, this, this);
 
         SharedPreferences.Editor editor =getSharedPreferences("whattoshow", MODE_PRIVATE).edit();
-        bp = new BillingProcessor(this, null, new BillingProcessor.IBillingHandler() {
+        bp =  BillingProcessor.newBillingProcessor(this, null, new BillingProcessor.IBillingHandler() {
             @Override
             public void onProductPurchased(@NonNull String productId, @Nullable PurchaseInfo details) {
-
+recreate();
             }
 
             @Override
@@ -123,18 +133,80 @@ public class MainActivity extends AppCompatActivity implements FragmentInterface
 
             @Override
             public void onBillingError(int errorCode, @Nullable Throwable error) {
+                InterstitialAd.load(getApplicationContext(),"ca-app-pub-2272866171011454/5327827261", adRequest,
+                        new InterstitialAdLoadCallback() {
+                            @Override
+                            public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                                // The mInterstitialAd reference will be null until
+                                // an ad is loaded.
+                                mInterstitialAd = interstitialAd;
+                                if(!((app) getApplication()).getsubscribe()){
+                                    interstitialAd.show(MainActivity.this);
+
+                                }
+
+                                show(new FragmentMain(getApplicationContext(),MainActivity.this), fragmentSplash);
+
+                            }
+
+                            @Override
+                            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+
+                                Log.i(TAG, loadAdError.getMessage());
+                                mInterstitialAd = null;
+                                show(new FragmentMain(getApplicationContext(),MainActivity.this), fragmentSplash);
+
+                            }
+                        });
              }
 
             @Override
             public void onBillingInitialized() {
-                bp.getSubscriptionListingDetailsAsync("fast.clean.app.pro.365days", new BillingProcessor.ISkuDetailsResponseListener() {
+                InterstitialAd.load(getApplicationContext(),"ca-app-pub-2272866171011454/5327827261", adRequest,
+                        new InterstitialAdLoadCallback() {
+                            @Override
+                            public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                                // The mInterstitialAd reference will be null until
+                                // an ad is loaded.
+                                mInterstitialAd = interstitialAd;
+                                if(!((app) getApplication()).getsubscribe()){
+                                    interstitialAd.show(MainActivity.this);
+
+                                }
+
+                                show(new FragmentMain(getApplicationContext(),MainActivity.this), fragmentSplash);
+
+                            }
+
+                            @Override
+                            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+
+                                Log.i(TAG, loadAdError.getMessage());
+                                mInterstitialAd = null;
+                                show(new FragmentMain(getApplicationContext(),MainActivity.this), fragmentSplash);
+
+                            }
+                        });
+                if(bp.isSubscribed("365days")){
+                    ((app) getApplication()).setgetsubscribe(true);
+
+
+                }
+                else if(bp.isSubscribed("30days")){
+                    ((app) getApplication()).setgetsubscribe(true);
+                }
+
+                bp.getSubscriptionListingDetailsAsync("365days", new BillingProcessor.ISkuDetailsResponseListener() {
                     @Override
                     public void onSkuDetailsResponse(@Nullable List<SkuDetails> products) {
                         try {
                             JSONArray skuArray = new JSONArray(products);
                             for (int i = 0; i < skuArray.length(); i++) {
                                 String priceText = products.get(i).priceText;
-                              editor.putString("pricetext",priceText).apply();
+                                Double priceTextfloat = products.get(i).priceValue;
+                                ((app) getApplication()).setprice(priceTextfloat);
+
+                                editor.putString("pricetext",priceText).apply();
                             }
                         } catch (Exception e) {
                             editor.putString("pricetext",e.getLocalizedMessage()).apply();
@@ -149,10 +221,39 @@ public class MainActivity extends AppCompatActivity implements FragmentInterface
                         editor.putString("pricetext",error).apply();
                     }
                 });
+                bp.getSubscriptionListingDetailsAsync("30days", new BillingProcessor.ISkuDetailsResponseListener() {
+                    @Override
+                    public void onSkuDetailsResponse(@Nullable List<SkuDetails> products) {
+                        try {
+                            JSONArray skuArray = new JSONArray(products);
+                            for (int i = 0; i < skuArray.length(); i++) {
+                                String priceText = products.get(i).priceText;
+                                Double priceTextfloat = products.get(i).priceValue;
+                                ((app) getApplication()).setprice30(priceTextfloat);
+                                editor.putString("pricetext30",priceText).apply();
+                            }
+                        } catch (Exception e) {
+                            editor.putString("pricetext30",e.getLocalizedMessage()).apply();
+                            editor.putString("pricetext30",e.getLocalizedMessage()).apply();
+
+                            e.printStackTrace();
+                        }
+
+
+                    }
+
+                    @Override
+                    public void onSkuDetailsError(String error) {
+                        editor.putString("pricetext30",error).apply();
+                        editor.putString("pricetext30",error).apply();
+                    }
+                });
             }
         });
+
         bp.initialize();
         boolean isConnected = bp.isConnected();
+
         MobileAds.initialize(this, initializationStatus -> {
 
         });
@@ -160,25 +261,7 @@ adRequest =
         new AdRequest.Builder()
                 .build();
 
-        InterstitialAd.load(this,"ca-app-pub-3940256099942544/1033173712", adRequest,
-                new InterstitialAdLoadCallback() {
-                    @Override
-                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
-                        // The mInterstitialAd reference will be null until
-                        // an ad is loaded.
-                        mInterstitialAd = interstitialAd;
-                        interstitialAd.show(MainActivity.this);
-                        show(new FragmentMain(getApplicationContext(),MainActivity.this), fragmentSplash);
 
-                    }
-
-                    @Override
-                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                        // Handle the error
-                        Log.i(TAG, loadAdError.getMessage());
-                        mInterstitialAd = null;
-                    }
-                });
         editor.putBoolean("boost", true).apply();
         editor.putBoolean("clean", true).apply();
         editor.putBoolean("cool", true).apply();
@@ -212,7 +295,11 @@ adRequest =
                             // The mInterstitialAd reference will be null until
                             // an ad is loaded.
                             mInterstitialAd = interstitialAd;
-                            interstitialAd.show(MainActivity.this);
+                            if(!((app) getApplication()).getsubscribe()){
+                                interstitialAd.show(MainActivity.this);
+
+                            }
+
 
                             getSupportFragmentManager().beginTransaction().remove(fragment1).add(R.id.container, fragment).commit();
                         }
@@ -241,15 +328,26 @@ adRequest =
 
     @Override
     public void subscribe() {
-        bp.subscribe(this, "fast.clean.app.pro.365days");
+        bp.subscribe(this, "30days");
+    }
+
+    @Override
+    public void subscribeYearly() {
+        bp.subscribe(this, "30days");
     }
 
     @Override
     public void loadAd(AdView adView) {
+
         dialog= ProgressDialog.show(this, "",
                 "Loading. Please wait...", true);
         dialog.show();
-        adView.loadAd(adRequest);
+        if(!((app) getApplication()).getsubscribe()){
+            adView.loadAd(adRequest);
+        }
+        else {
+            dialog.dismiss();
+        }
        adView.setAdListener(new AdListener() {
             @Override
             public void onAdLoaded() {

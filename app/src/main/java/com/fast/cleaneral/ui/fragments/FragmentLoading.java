@@ -23,6 +23,7 @@ import android.view.ViewGroup;
 
 import com.fast.cleaneral.FileScanner;
 import com.fast.cleaneral.R;
+import com.fast.cleaneral.app;
 import com.fast.cleaneral.databinding.FragmentLoadingBinding;
 import com.fast.cleaneral.interfaces.FragmentInterface;
 import com.fast.cleaneral.ui.activities.MainActivity;
@@ -60,85 +61,101 @@ public class FragmentLoading extends Fragment {
         Looper.prepare();
 
         File path = Environment.getExternalStorageDirectory();
-if(isAdded()){
-    FileScanner fs = new FileScanner(path, requireContext())
-            .setEmptyDir(prefs.getBoolean("empty", false))
-            .setAutoWhite(prefs.getBoolean("auto_white", true))
-            .setDelete(delete)
-            .setCorpse(prefs.getBoolean("corpse", true))
-            .setContext(requireContext())
-            .setUpFilters(true, false, true);
+        if(isAdded()){
+            FileScanner fs = new FileScanner(path, requireContext())
+                    .setEmptyDir(prefs.getBoolean("empty", false))
+                    .setAutoWhite(prefs.getBoolean("auto_white", true))
+                    .setDelete(delete)
+                    .setCorpse(prefs.getBoolean("corpse", true))
+                    .setContext(requireContext())
+                    .setUpFilters(true, false, true);
 
-    // kilobytes found/freed text
-    kilobytesTotal = fs.startScan();
-}
+            // kilobytes found/freed text
+            kilobytesTotal = fs.startScan();
+        }
         // scanner setup
-       
 
 
 
-           requireActivity().runOnUiThread(() -> {
-               if (delete) {
-                   //     binding.statusTextView.setText(getString(R.string.freed) + " " + convertSize(kilobytesTotal));
-               } else {
-                   //   binding.statusTextView.setText(getString(R.string.found) + " " + convertSize(kilobytesTotal));
 
-                   binding.tvFoundFiles.setText(convertSize(kilobytesTotal));
+        if(isAdded()){
 
-                   binding.tvScanPercent.setText("0");
+            requireActivity().runOnUiThread(() -> {
+                if (delete) {
+                    //     binding.statusTextView.setText(getString(R.string.freed) + " " + convertSize(kilobytesTotal));
+                } else {
+                    //   binding.statusTextView.setText(getString(R.string.found) + " " + convertSize(kilobytesTotal));
+
+                    binding.tvFoundFiles.setText(convertSize(kilobytesTotal));
+
+                    binding.tvScanPercent.setText("0");
+                    if(isAdded()){
+                        getActiveApps(requireContext());}
+                    if(!((app) requireActivity().getApplication()).getsubscribe()){
+
+                        binding.adBanner.setAdListener(new AdListener() {
+                            @Override
+                            public void onAdLoaded() {
+
+                                binding.clScan.setVisibility(View.GONE);
+                                binding.tvActiveApps.setText(getResources().getString(R.string.running_apps)+ " " +countapps);
+                                binding.clScanResult.setVisibility(View.VISIBLE);
+
+                            }
+
+                            @Override
+                            public void onAdFailedToLoad(LoadAdError adError) {
+                                binding.clScan.setVisibility(View.GONE);
+                                binding.tvActiveApps.setText(getResources().getString(R.string.running_apps)+ " " +countapps);
+                                binding.clScanResult.setVisibility(View.VISIBLE);
+
+                            }
+
+                            @Override
+                            public void onAdOpened() {
+                                // Code to be executed when an ad opens an overlay that
+                                // covers the screen.
+                            }
+
+                            @Override
+                            public void onAdClicked() {
+                                // Code to be executed when the user clicks on an ad.
+                            }
+
+                            @Override
+                            public void onAdClosed() {
+                                // Code to be executed when the user is about to return
+                                // to the app after tapping on an ad.
+                            }
+                        });
+
+                    }
+                    else {
+                        binding.clScan.setVisibility(View.GONE);
+                        binding.tvActiveApps.setText(getResources().getString(R.string.running_apps)+ " " +countapps);
+                        binding.clScanResult.setVisibility(View.VISIBLE);
+
+                    }
+
+                }
 
 
-               }
 
-                   if(isAdded()){
-                       getActiveApps(requireContext());}
-               binding.adBanner.setAdListener(new AdListener() {
-                   @Override
-                   public void onAdLoaded() {
-
-                       binding.clScan.setVisibility(View.GONE);
-                       binding.tvActiveApps.setText(getResources().getString(R.string.running_apps)+ " " +countapps);
-                       binding.clScanResult.setVisibility(View.VISIBLE);
-
-                   }
-
-                   @Override
-                   public void onAdFailedToLoad(LoadAdError adError) {
-
-                   }
-
-                   @Override
-                   public void onAdOpened() {
-                       // Code to be executed when an ad opens an overlay that
-                       // covers the screen.
-                   }
-
-                   @Override
-                   public void onAdClicked() {
-                       // Code to be executed when the user clicks on an ad.
-                   }
-
-                   @Override
-                   public void onAdClosed() {
-                       // Code to be executed when the user is about to return
-                       // to the app after tapping on an ad.
-                   }
-               });
-
-               binding.tvScanPercent.setText("100 %");
+                binding.tvScanPercent.setText("100 %");
 
 
-           });
+            });
+        }
 
         Looper.loop();
     }
-public Context context;
-public  FragmentInterface fragmentInterface;
+    public Context context;
+    public  FragmentInterface fragmentInterface;
     public FragmentLoading(Context context, FragmentInterface fragmentInterface) {
         this.context = context ;
         this.fragmentInterface = fragmentInterface;
     }
-     Integer countapps= 0;
+    Integer countapps= 0;
     public String getActiveApps(Context context) {
 
         PackageManager pm = context.getPackageManager();
@@ -188,7 +205,7 @@ public  FragmentInterface fragmentInterface;
 
         return ((pkgInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0);
     }
-FragmentLoadingBinding binding;
+    FragmentLoadingBinding binding;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -199,37 +216,40 @@ FragmentLoadingBinding binding;
         WhitelistActivity.getWhiteList();
         SharedPreferences.Editor editor =requireContext().getSharedPreferences("whattoshow", MODE_PRIVATE).edit();
         AdRequest adRequest = new AdRequest.Builder().build();
-        binding.adBanner.loadAd(adRequest);
+        if(!((app) requireActivity().getApplication()).getsubscribe()){
+
+            binding.adBanner.loadAd(adRequest);
+        }
 
         new Thread(()-> scan(false)).start();
         binding.ivClean.setOnClickListener(v -> {new Thread(()-> scan(true)).start();
             binding.clScanResult.setVisibility(View.GONE);
             binding.clScan.setVisibility(View.VISIBLE);
-         binding.ivBigCircle.setVisibility(View.GONE);
+            binding.ivBigCircle.setVisibility(View.GONE);
             Picasso.get().load(R.drawable.ic_cleaning).error(R.drawable.ic_cleaning).placeholder(R.drawable.ic_cleaning).into(binding.ivSmallCircle);
-binding.ivBack.setVisibility(View.GONE);
-          binding.tvScan.setText(getResources().getString(R.string.clean_app_files));
-          binding.tvScanPercent.addTextChangedListener(new TextWatcher() {
-              @Override
-              public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            binding.ivBack.setVisibility(View.GONE);
+            binding.tvScan.setText(getResources().getString(R.string.clean_app_files));
+            binding.tvScanPercent.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-              }
+                }
 
-              @Override
-              public void onTextChanged(CharSequence s, int start, int before, int count) {
-                 if(binding.tvScanPercent.getText().toString().contains("100")){
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    if(binding.tvScanPercent.getText().toString().contains("100")){
 
-                     editor.putBoolean("clean", false).apply();
-                      fragmentInterface.show(new FragmentCleanFinished(((MainActivity)requireActivity()), getContext(), convertSize(kilobytesTotal), ((MainActivity)requireActivity())),FragmentLoading.this);
-                  }
+                        editor.putBoolean("clean", false).apply();
+                        fragmentInterface.show(new FragmentCleanFinished(((MainActivity)requireActivity()), getContext(), convertSize(kilobytesTotal), ((MainActivity)requireActivity())),FragmentLoading.this);
+                    }
 
-              }
+                }
 
-              @Override
-              public void afterTextChanged(Editable s) {
+                @Override
+                public void afterTextChanged(Editable s) {
 
-              }
-          });
+                }
+            });
 
         });
 

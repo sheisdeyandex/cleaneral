@@ -14,7 +14,7 @@
         ads:layout_constraintStart_toStartOf="parent"
         ads:layout_constraintEnd_toEndOf="parent"
         ads:adSize="SMART_BANNER"
-        ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+        ads:adUnitId="@string/admob_adview_id">
     </com.google.android.gms.ads.AdView>
     <ImageView
         android:layout_width="wrap_content"
@@ -98,9 +98,9 @@
         android:layout_width="match_parent"
         android:id="@+id/cl_cool"
         android:visibility="gone"
-        app:layout_constraintHeight_percent="0.93"
         app:layout_constraintTop_toBottomOf="@+id/ad_banner"
-        android:layout_height="0dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+       android:layout_height="0dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

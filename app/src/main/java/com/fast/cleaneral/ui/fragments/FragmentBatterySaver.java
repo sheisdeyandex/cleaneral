@@ -21,6 +21,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.fast.cleaneral.R;
+import com.fast.cleaneral.app;
 import com.fast.cleaneral.databinding.FragmentBatterySaverBinding;
 import com.fast.cleaneral.interfaces.FragmentInterface;
 import com.fast.cleaneral.ui.activities.MainActivity;
@@ -67,7 +68,26 @@ FragmentBatterySaverBinding binding;
        binding = FragmentBatterySaverBinding.inflate(inflater,container, false);
        View view = binding.getRoot();
         AdRequest adRequest = new AdRequest.Builder().build();
-        binding.adBanner.loadAd(adRequest);
+        if(!((app) requireActivity().getApplication()).getsubscribe()){
+
+            binding.adBanner.loadAd(adRequest);
+        }
+        else {
+            new CountDownTimer(2000, 1000) {
+                @Override
+                public void onTick(long millisUntilFinished) {
+
+                }
+
+                @Override
+                public void onFinish() {
+
+                    binding.clScan.setVisibility(View.GONE);
+                    binding.clScanResult.setVisibility(View.VISIBLE);
+                }
+            }.start();
+
+        }
         binding.adBanner.setAdListener(new AdListener() {
             @Override
             public void onAdLoaded() {
@@ -100,17 +120,7 @@ FragmentBatterySaverBinding binding;
         });
         SharedPreferences.Editor editor =requireContext().getSharedPreferences("whattoshow", MODE_PRIVATE).edit();
 
-        new CountDownTimer(2000, 1000) {
-            @Override
-            public void onTick(long millisUntilFinished) {
 
-            }
-
-            @Override
-            public void onFinish() {
-
-            }
-        }.start();
         WifiManager wifiManager = (WifiManager) requireContext().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         boolean wifiEnabled = wifiManager.isWifiEnabled();
 binding.mcbNormalMode.setOnCheckedChangeListener((buttonView, isChecked) -> {

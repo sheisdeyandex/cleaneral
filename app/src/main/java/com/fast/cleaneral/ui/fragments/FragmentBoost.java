@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.fast.cleaneral.R;
+import com.fast.cleaneral.app;
 import com.fast.cleaneral.databinding.FragmentBoostBinding;
 import com.fast.cleaneral.interfaces.FragmentInterface;
 import com.fast.cleaneral.ui.activities.MainActivity;
@@ -47,7 +48,26 @@ public class FragmentBoost extends Fragment {
         double availableMegs = mi.availMem / 0x100000L;
         binding.tvTemperature.setText(availableMegs+" MB");
         AdRequest adRequest = new AdRequest.Builder().build();
-        binding.adBanner.loadAd(adRequest);
+        if(!((app) requireActivity().getApplication()).getsubscribe()){
+
+            binding.adBanner.loadAd(adRequest);
+        }
+        else {
+            new CountDownTimer(2000, 1000) {
+                @Override
+                public void onTick(long millisUntilFinished) {
+
+                }
+
+                @Override
+                public void onFinish() {
+
+                    binding.clScan.setVisibility(View.GONE);
+                    binding.clCool.setVisibility(View.VISIBLE);
+
+                }
+            }.start();
+        }
         binding.adBanner.setAdListener(new AdListener() {
             @Override
             public void onAdLoaded() {

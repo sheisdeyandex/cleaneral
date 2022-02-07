@@ -151,6 +151,10 @@ FragmentAppManagerBinding binding;
 
   binding = FragmentAppManagerBinding.inflate(inflater, container,false);
   View view = binding.getRoot();
+        if(((app)requireActivity().getApplication()).getsubscribe()){
+        binding.adBanner.setVisibility(View.GONE);
+        }
+
         loadAdmob.loadAd(binding.adBanner);
         binding.ivBack.setOnClickListener(v -> fragmentAppManager.show(new FragmentMain(requireContext(), ((MainActivity)requireContext())), this));
         appname =new ArrayList<>();

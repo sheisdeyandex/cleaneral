@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.fast.cleaneral.R;
+import com.fast.cleaneral.app;
 import com.fast.cleaneral.databinding.FragmentCoolBinding;
 import com.fast.cleaneral.interfaces.FragmentInterface;
 import com.fast.cleaneral.ui.activities.MainActivity;
@@ -65,7 +66,27 @@ Context context;
    View view = binding.getRoot();
    binding.ivBack.setOnClickListener(v -> fragmentInterface.show(new FragmentMain(requireContext(),((MainActivity)requireActivity())),this));
         AdRequest adRequest = new AdRequest.Builder().build();
-        binding.adBanner.loadAd(adRequest);
+        if(!((app) requireActivity().getApplication()).getsubscribe()){
+
+            binding.adBanner.loadAd(adRequest);
+        }
+        else {
+            new CountDownTimer(2000, 1000) {
+                @Override
+                public void onTick(long millisUntilFinished) {
+
+                }
+
+                @Override
+                public void onFinish() {
+
+                    binding.clScan.setVisibility(View.GONE);
+                    binding.clCool.setVisibility(View.VISIBLE);
+                    binding.tvTemperature.setText(cpuTemperature() +"°C");
+                }
+            }.start();
+
+        }
         binding.adBanner.setAdListener(new AdListener() {
             @Override
             public void onAdLoaded() {

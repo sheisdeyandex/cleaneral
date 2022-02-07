@@ -10,11 +10,13 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.fast.cleaneral.R;
+import com.fast.cleaneral.app;
 import com.fast.cleaneral.databinding.FragmentCleanFinishedBinding;
 import com.fast.cleaneral.interfaces.FragmentInterface;
 import com.fast.cleaneral.interfaces.LoadAdmob;
@@ -102,8 +104,15 @@ countapps++;
         boolean cool = prefs.getBoolean("cool", true);
         boolean batterysaver = prefs.getBoolean("batterysaver", true);
         AdRequest adRequest = new AdRequest.Builder().build();
+        if(!((app) requireActivity().getApplication()).getsubscribe()){
 
-        binding.adBanner.loadAd(adRequest);
+            binding.adBanner.loadAd(adRequest);
+        }
+        else {
+
+                    binding.clFinished.setVisibility(View.VISIBLE);
+
+        }
         binding.adBanner.setAdListener(new AdListener() {
             @Override
             public void onAdLoaded() {

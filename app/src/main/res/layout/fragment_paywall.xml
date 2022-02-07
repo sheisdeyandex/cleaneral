@@ -3,8 +3,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E5E5E5"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fragments.FragmentPaywall">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:id="@+id/cgl_start1"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.04"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_back"
+        android:id="@+id/iv_back"
+        app:layout_constraintStart_toEndOf="@+id/cgl_start1"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        />
 <androidx.constraintlayout.widget.Guideline
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -12,6 +31,27 @@
     app:layout_constraintGuide_percent="0.05"
     android:id="@+id/cgl_top"
     />
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.17"
+        android:id="@+id/cgl_top_yearly"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.16"
+        android:id="@+id/cgl_top_yearly_timer"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.18"
+        android:id="@+id/cgl_bottom_yearly_timer"
+        />
     <androidx.constraintlayout.widget.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -26,13 +66,22 @@
         app:layout_constraintGuide_percent="0.4"
         android:id="@+id/cgl_monthly"
         />
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.46"
+        android:id="@+id/cgl_start_yearly"
+        />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
+
         android:id="@+id/cl_monthly"
         app:layout_constraintWidth_percent="0.4"
 app:layout_constraintHeight_percent="0.17"
-        android:background="#4DFFFFFF"
+        android:background="@drawable/paywall_monthly"
         app:layout_constraintBottom_toTopOf="@+id/cgl_monthly"
         app:layout_constraintStart_toEndOf="@+id/cgl_start"
         >
@@ -65,13 +114,168 @@ app:layout_constraintHeight_percent="0.17"
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:id="@+id/tv_subscribe_monthly"
             android:textColor="#7B7B7B"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cgl_monthly_bottom"
             />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:id="@+id/cl_yearly"
+        android:background="@drawable/paywall_yearly"
+        app:layout_constraintStart_toEndOf="@+id/cgl_start_yearly"
+        app:layout_constraintTop_toBottomOf="@+id/cgl_top_yearly"
+        app:layout_constraintHeight_percent="0.3"
+        app:layout_constraintWidth_percent="0.48"
+        android:layout_height="0dp">
+<androidx.constraintlayout.widget.Guideline
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:id="@+id/cgl_discount"
+    app:layout_constraintGuide_percent="0.16"
+    />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/disscount"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/cgl_discount"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="#2D2D2D"
+            />
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.2"
+            android:id="@+id/cgl_yearly"
+
+            />
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.95"
+            android:id="@+id/cgl_yearly_bottom"
+
+            />
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05"
+            android:id="@+id/cgl_yearly_start"
+
+            />
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95"
+            android:id="@+id/cgl_yearly_end"
+
+            />
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:id="@+id/cl_yearly_cl"
+    android:background="@drawable/paywall_yearly_in"
+app:layout_constraintTop_toBottomOf="@+id/cgl_yearly"
+    app:layout_constraintBottom_toTopOf="@+id/cgl_yearly_bottom"
+    app:layout_constraintStart_toEndOf="@+id/cgl_yearly_start"
+    app:layout_constraintEnd_toStartOf="@+id/cgl_yearly_end"
+    >
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1"
+        android:id="@+id/cgl_yearly_top_text"
+
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9"
+        android:id="@+id/cgl_yearly_bottom_text"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+android:text="@string/yearly"
+        android:id="@+id/tv_yearly_text"
+        android:textSize="21sp"
+        android:textColor="#41508E"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/cgl_yearly_top_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/yearly"
+        android:textSize="24sp"
+android:id="@+id/tv_yearly"
+        android:textStyle="bold"
+        android:textColor="#2D2D2D"
+        app:layout_constraintTop_toBottomOf="@+id/tv_yearly_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/yearly"
+        android:textSize="18sp"
+        android:id="@+id/tv_yearly_crossline"
+        android:textColor="#41508E"
+        app:layout_constraintTop_toBottomOf="@+id/tv_yearly"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:id="@+id/tv_yearly_bottom"
+        android:textColor="#41508E"
+        app:layout_constraintBottom_toTopOf="@+id/cgl_yearly_bottom_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+       app:layout_constraintBottom_toTopOf="@+id/cgl_bottom_yearly_timer"
+        app:layout_constraintStart_toStartOf="@+id/cl_yearly"
+        app:layout_constraintEnd_toEndOf="@+id/cl_yearly"
+        android:background="@drawable/paywall_timer"
+app:layout_constraintWidth_percent="0.248"
+        app:layout_constraintHeight_percent="0.03"
+        android:layout_height="0dp">
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="#41508E"
+    android:textSize="15sp"
+    android:id="@+id/tv_timer"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    />
     </androidx.constraintlayout.widget.ConstraintLayout>
     <TextView
         android:layout_width="wrap_content"
@@ -98,6 +302,223 @@ app:layout_constraintHeight_percent="0.17"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />
+<androidx.constraintlayout.widget.Guideline
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintGuide_percent="0.55"
+    android:id="@+id/cgl_options"
+    />
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+app:layout_constraintTop_toBottomOf="@+id/cgl_options"
+    android:layout_height="0dp"
+    android:background="#4DFFFFFF"
+android:id="@+id/cl_options"
+    app:layout_constraintHeight_percent="0.25"
+    >
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1"
+        android:id="@+id/cgl_options_start"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1"
+        android:id="@+id/cgl_options_top_one"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4"
+        android:id="@+id/cgl_options_top_two"
+        />
 
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_without_advertising"
+        app:layout_constraintBottom_toTopOf="@+id/tv_without_advertising_text"
+app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tv_without_advertising"
+        android:src="@drawable/ic_volume_down"
+        app:layout_constraintWidth_percent="0.05"
+        app:layout_constraintDimensionRatio="1:1"
+        />
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+app:layout_constraintStart_toEndOf="@+id/cgl_options_start"
+    app:layout_constraintTop_toBottomOf="@+id/cgl_options_top_one"
+    android:textColor="#41508E"
+    android:textSize="18sp"
+android:text="@string/withoutadvertising"
+    android:id="@+id/tv_without_advertising"
+    />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/cgl_options_start"
+        app:layout_constraintTop_toBottomOf="@+id/tv_without_advertising"
+        android:textColor="#41508E"
+        android:textSize="13sp"
+        android:id="@+id/tv_without_advertising_text"
+        android:text="@string/phonecleaningwithoutadvertising"
 
+        />
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_continuous_improvement"
+        app:layout_constraintBottom_toTopOf="@+id/tv_continuous_improvement_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tv_without_advertising"
+        android:src="@drawable/ic_schedule"
+        app:layout_constraintWidth_percent="0.05"
+        app:layout_constraintDimensionRatio="1:1"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/cgl_options_start"
+        app:layout_constraintTop_toBottomOf="@+id/cgl_options_top_two"
+        android:textColor="#41508E"
+        android:textSize="18sp"
+        android:text="@string/continuousimprovement"
+        android:id="@+id/tv_continuous_improvement"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/cgl_options_start"
+        app:layout_constraintTop_toBottomOf="@+id/tv_continuous_improvement"
+        android:textColor="#41508E"
+        android:textSize="13sp"
+        android:text="@string/early_access"
+android:id="@+id/tv_continuous_improvement_text"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7"
+        android:id="@+id/cgl_options_top_three"
+        />
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_support"
+        app:layout_constraintBottom_toTopOf="@+id/tv_support_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tv_without_advertising"
+        android:src="@drawable/ic_person"
+        app:layout_constraintWidth_percent="0.05"
+        app:layout_constraintDimensionRatio="1:1"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/cgl_options_start"
+        app:layout_constraintTop_toBottomOf="@+id/cgl_options_top_three"
+        android:textColor="#41508E"
+        android:textSize="18sp"
+        android:text="@string/support"
+        android:id="@+id/tv_support"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/cgl_options_start"
+        app:layout_constraintTop_toBottomOf="@+id/tv_support"
+        android:textColor="#41508E"
+        android:textSize="13sp"
+        android:text="@string/usersupport"
+        android:id="@+id/tv_support_text"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/cl_options"
+        app:layout_constraintBottom_toTopOf="@+id/cl_bottom_menu"
+        app:layout_constraintWidth_percent="0.8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/paywall_policy"
+        android:textSize="8sp"
+
+        />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/paywall_bottom_menu"
+app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHeight_percent="0.1"
+        android:id="@+id/cl_bottom_menu"
+        android:layout_height="0dp">
+<LinearLayout
+    android:layout_width="0dp"
+    app:layout_constraintWidth_percent="0.9"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    android:orientation="horizontal"
+    android:weightSum="6"
+    >
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+
+        android:layout_gravity="center"
+        android:src="@drawable/ic_cleann"
+        />
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+
+        android:layout_gravity="center"
+        android:src="@drawable/ic_boost_main"
+        />
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+
+        android:layout_gravity="center"
+        android:src="@drawable/ic_cool"
+        />
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+
+        android:layout_gravity="center"
+        android:src="@drawable/ic_battery_saver"
+        />
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+
+        android:layout_gravity="center"
+        android:src="@drawable/ic_app_manager"
+        />
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:src="@drawable/ic_paywall"
+        />
+</LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
